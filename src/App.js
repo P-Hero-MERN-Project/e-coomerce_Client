@@ -19,6 +19,12 @@ import ProductList from './components/Admin/ProductList';
 import NewProduct from './components/Admin/NewProduct';
 import { useSelector } from 'react-redux';
 
+// cart imports
+import Cart from './components/cart/Cart';
+import Shipping from './components/cart/Shipping';
+import ConfirmOrder from './components/cart/ConfirmOrder';
+
+
 
 
 function App() {
@@ -36,6 +42,10 @@ function App() {
         <div className="container container-fluid">
           <Route path="/" component={Home} exact />
           <Route path="/product/:id" component={ProductDetails} exact />
+
+          <Route path="/cart" component={Cart} exact />
+          <ProtectedRoute path="/shipping" component={Shipping} exact />
+          <ProtectedRoute path="/order/confirm" component={ConfirmOrder} exact />
 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
