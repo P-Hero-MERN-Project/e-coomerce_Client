@@ -28,6 +28,11 @@ import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/ConfirmOrder';
 import Payment from './components/cart/Payment';
+import OrderSuccess from './components/cart/OrderSuccess';
+import ListOrders from './components/Order/ListOrders';
+import OrderDetails from './components/Order/OrderDetails';
+import OrdersList from './components/Order/OrdersList';
+import ProcessOrder from './components/Admin/ProcessOrder';
 
 
 
@@ -66,6 +71,7 @@ function App() {
           <Route path="/cart" component={Cart} exact />
           <ProtectedRoute path="/shipping" component={Shipping} />
           <ProtectedRoute path="/order/confirm" component={ConfirmOrder} />
+          <ProtectedRoute path="/success" component={OrderSuccess} />
           {stripeApiKey && 
 
           <Elements stripe={loadStripe(stripeApiKey)}>
@@ -78,12 +84,16 @@ function App() {
           <Route path="/register" component={Register} />
           <ProtectedRoute path="/me" component={Profile} exact />
           <ProtectedRoute path="/me/update" component={UpdateProfile} exact />
+          <ProtectedRoute path="/orders/me" component={ListOrders} exact />
+          <ProtectedRoute path="/order/:id" component={OrderDetails} exact />
 
         </div>
-        
+          
           <ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
           <ProtectedRoute path="/admin/products" isAdmin={true} component={ProductList} exact />
           <ProtectedRoute path="/admin/product" isAdmin={true} component={NewProduct} exact />
+          <ProtectedRoute path="/admin/orders" isAdmin={true} component={OrdersList} exact />
+          <ProtectedRoute path="/admin/order/:id" isAdmin={true} component={ProcessOrder} exact />
 
         {/* {!loading && user.role !== 'admin' && (
           <Footer />
