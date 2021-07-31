@@ -1,0 +1,8 @@
+.action-show{
+    display: none;
+   
+}
+.action:hover .action-show{
+    display: flex;
+    flex-direction: column;
+} 

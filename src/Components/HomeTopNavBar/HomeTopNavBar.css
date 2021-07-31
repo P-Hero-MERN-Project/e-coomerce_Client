@@ -1,0 +1,11 @@
+.action-bar{
+    display: none;
+}
+
+.action-bar:hover{
+    display:flex;
+}
+
+.profile:hover ~ .action-bar{
+    display: flex;
+}
